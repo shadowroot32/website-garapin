@@ -1,0 +1,65 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-garapin-navy: #0F172A;
+  --color-garapin-dark: #1E293B;
+  --color-garapin-slate: #334155;
+  --color-garapin-gray: #64748B;
+  --color-garapin-light: #94A3B8;
+  --color-garapin-border: #E2E8F0;
+  --color-garapin-bg: #F8FAFC;
+  --color-garapin-white: #FFFFFF;
+  --color-garapin-orange: #FF6B00;
+  --color-garapin-orange-light: #FF8A00;
+  --color-garapin-orange-muted: #FFF7ED;
+  --color-garapin-success: #10B981;
+  --color-garapin-warning: #F59E0B;
+  --font-sans: var(--font-inter);
+  --font-heading: var(--font-satoshi);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-garapin-navy);
+  background: var(--color-garapin-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: #FF6B00;
+  color: white;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94A3B8;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748B;
+}
+
+/* Smooth anchor offset for sticky nav */
+html {
+  scroll-padding-top: 80px;
+}

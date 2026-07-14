@@ -1,0 +1,256 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "contact": "Contact",
+    "cta": "Free Consultation"
+  },
+  "hero": {
+    "badge": "Web Development Agency",
+    "title": "From Ideas to Professional Websites.",
+    "subtitle": "We help businesses, institutions, and organizations build modern, high-quality websites that drive growth.",
+    "cta_primary": "Consultation Now",
+    "cta_secondary": "View Portfolio",
+    "stats_clients": "Happy Clients",
+    "stats_projects": "Projects Completed",
+    "stats_years": "Years Experience"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete web development solutions tailored to your business needs",
+    "items": {
+      "company_profile": {
+        "title": "Company Profile",
+        "desc": "Professional company profile websites to build credibility and showcase your business identity."
+      },
+      "landing_page": {
+        "title": "Landing Page",
+        "desc": "High-converting landing pages for marketing campaigns, product launches, and promotions."
+      },
+      "ecommerce": {
+        "title": "E-Commerce",
+        "desc": "Full-featured online stores with secure payment integration and inventory management."
+      },
+      "dashboard": {
+        "title": "Dashboard & Analytics",
+        "desc": "Interactive data dashboards and business intelligence tools for data-driven decisions."
+      },
+      "erp": {
+        "title": "ERP System",
+        "desc": "Integrated enterprise resource planning systems to streamline business operations."
+      },
+      "crm": {
+        "title": "CRM System",
+        "desc": "Customer relationship management systems to manage interactions and nurture leads."
+      }
+    }
+  },
+  "workflow": {
+    "title": "How We Work",
+    "subtitle": "A proven process to deliver your website on time and on budget",
+    "steps": {
+      "consultation": { "title": "Consultation", "desc": "We discuss your needs, goals, and vision for the project." },
+      "research": { "title": "Research", "desc": "Market analysis, competitor research, and technical planning." },
+      "design": { "title": "Design", "desc": "UI/UX design with modern aesthetics and user-centered approach." },
+      "development": { "title": "Development", "desc": "Clean code development with the latest technologies." },
+      "testing": { "title": "Testing", "desc": "Rigorous quality assurance across devices and browsers." },
+      "launch": { "title": "Launch", "desc": "Deployment, optimization, and go-live support." },
+      "support": { "title": "Support", "desc": "Ongoing maintenance and priority support." }
+    }
+  },
+  "portfolio": {
+    "title": "Our Portfolio",
+    "subtitle": "Recent projects we've delivered with pride",
+    "view_detail": "View Details",
+    "all": "All",
+    "categories": {
+      "company": "Company Profile",
+      "landing": "Landing Page",
+      "ecommerce": "E-Commerce",
+      "dashboard": "Dashboard",
+      "system": "System"
+    }
+  },
+  "pricing": {
+    "title": "Pricing Plans",
+    "subtitle": "Choose the package that fits your needs. All plans include free consultation.",
+    "recommended": "Recommended",
+    "starter": {
+      "name": "Starter",
+      "price": "Rp 3.500.000",
+      "desc": "Perfect for small businesses starting their online presence",
+      "features": {
+        "pages": "5 Pages",
+        "language": "1 Language",
+        "cms": "No CMS",
+        "database": "No Database",
+        "seo": "Basic SEO",
+        "revision": "1x Major Revision",
+        "support": "Standard Support"
+      }
+    },
+    "profesional": {
+      "name": "Professional",
+      "price": "Rp 5.500.000",
+      "desc": "Best choice for growing businesses that need more features",
+      "features": {
+        "pages": "7-8 Pages",
+        "language": "2 Languages (ID + EN)",
+        "cms": "Basic CMS + 1 Training Session",
+        "database": "Light Database",
+        "seo": "Basic SEO + Sitemap",
+        "revision": "2x Major Revisions",
+        "support": "Priority Support"
+      }
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "Rp 7.000.000",
+      "desc": "Complete solution for businesses with advanced needs",
+      "features": {
+        "pages": "All Professional + Custom",
+        "language": "Up to 3 Languages",
+        "cms": "Full CMS",
+        "database": "Full Database",
+        "seo": "Advanced SEO + Tracking",
+        "revision": "Flexible Revisions",
+        "support": "24/7 Priority + 3 Months Maintenance"
+      }
+    },
+    "cta": "Choose Plan",
+    "note": "Need a custom plan? Contact us for a tailored solution."
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Trusted by businesses across Indonesia"
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Everything you need to know about our services",
+    "items": [
+      {
+        "q": "How long does it take to build a website?",
+        "a": "Timeline depends on complexity. A company profile takes 1-2 weeks, while a full-featured system can take 4-8 weeks. We'll provide a clear timeline during consultation."
+      },
+      {
+        "q": "Do I need to provide content and images?",
+        "a": "We recommend providing your own content for authenticity. However, we can assist with copywriting and stock photography for an additional fee."
+      },
+      {
+        "q": "Will my website be mobile-friendly?",
+        "a": "Absolutely. All our websites are built mobile-first and fully responsive across all devices and screen sizes."
+      },
+      {
+        "q": "Do you provide hosting and domain?",
+        "a": "We can help you set up hosting and domain registration. We recommend reliable providers and can manage the technical setup for you."
+      },
+      {
+        "q": "Can I update the website myself after launch?",
+        "a": "For Professional and Premium packages, we provide a CMS that lets you update content easily. We also provide training sessions."
+      },
+      {
+        "q": "What if I need changes after the project is done?",
+        "a": "We offer maintenance packages and are always available for additional development work. Premium package includes 3 months of free maintenance."
+      }
+    ]
+  },
+  "cta_section": {
+    "title": "Ready to Build Your Website?",
+    "subtitle": "Let's discuss your project. Free consultation with no obligation.",
+    "button": "Contact Us Now"
+  },
+  "footer": {
+    "description": "Professional web development agency helping businesses grow with modern, high-quality websites.",
+    "services_title": "Services",
+    "quick_links": "Quick Links",
+    "contact_title": "Contact",
+    "contact_wa": "0852-8388-6884",
+    "contact_email": "sr01@wearehackerone.com",
+    "copyright": "© 2024 Garapin.id. All rights reserved.",
+    "made_with": "Made with",
+    "in_indonesia": "in Indonesia"
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Meet the people behind Garapin.id",
+    "story_title": "Our Story",
+    "story": "Garapin.id was founded by Mustofa Habibi Bafadhal with a clear vision: to make professional website development accessible to businesses of all sizes. We believe that every business deserves a digital presence that reflects its quality and professionalism.\n\nStarting from a passion for technology and design, we've grown into a trusted web development agency serving UMKM, corporations, government institutions, schools, hospitals, and various other organizations across Indonesia.",
+    "vision_title": "Vision & Mission",
+    "vision": "To become Indonesia's most trusted web development partner, known for quality, integrity, and innovation.",
+    "mission": "Deliver high-quality websites that drive real business results. Maintain transparent communication and honest practices. Continuously innovate with the latest technologies. Provide exceptional post-launch support.",
+    "values_title": "Our Values",
+    "values": {
+      "quality": { "title": "Quality First", "desc": "We never compromise on quality. Every pixel, every line of code matters." },
+      "integrity": { "title": "Integrity", "desc": "Honest communication, realistic promises, and transparent pricing." },
+      "innovation": { "title": "Innovation", "desc": "Always learning and adopting the best technologies and practices." },
+      "support": { "title": "Commitment", "desc": "We stand by our work and provide ongoing support even after launch." }
+    },
+    "founder_title": "Founder",
+    "founder_name": "Mustofa Habibi Bafadhal",
+    "founder_role": "Founder & Lead Developer",
+    "founder_desc": "With years of experience in web development and a deep understanding of business needs, Mustofa leads the team in delivering exceptional digital solutions."
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Ready to start your project? Fill out the form and we'll get back to you within 24 hours.",
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "Your full name",
+      "company": "Company/Institution (optional)",
+      "company_placeholder": "Your company name",
+      "contact": "WhatsApp / Email",
+      "contact_placeholder": "Your WhatsApp number or email",
+      "website_type": "Type of Website",
+      "website_type_placeholder": "Select website type",
+      "website_options": {
+        "company": "Company Profile",
+        "landing": "Landing Page",
+        "ecommerce": "E-Commerce",
+        "dashboard": "Dashboard",
+        "other": "Other"
+      },
+      "package": "Preferred Package",
+      "package_placeholder": "Select package",
+      "package_options": {
+        "starter": "Starter",
+        "profesional": "Professional",
+        "premium": "Premium",
+        "unknown": "Not Sure Yet"
+      },
+      "message": "Additional Message",
+      "message_placeholder": "Tell us about your project needs...",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We'll contact you soon.",
+      "error": "Failed to send message. Please try again."
+    },
+    "info_title": "Contact Information",
+    "info_wa": "WhatsApp",
+    "info_email": "Email",
+    "info_response": "Response Time",
+    "info_response_text": "Within 24 hours"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights, tips, and updates from the Garapin.id team",
+    "read_more": "Read More",
+    "categories": {
+      "web-development": "Web Development",
+      "ui-ux": "UI/UX Design",
+      "seo": "SEO",
+      "business": "Business",
+      "technology": "Technology"
+    },
+    "related": "Related Articles",
+    "not_found": "Article not found"
+  },
+  "not_found": {
+    "title": "Page Not Found",
+    "desc": "The page you're looking for doesn't exist or has been moved.",
+    "cta": "Back to Home"
+  }
+}

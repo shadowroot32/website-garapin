@@ -1,0 +1,256 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang Kami",
+    "services": "Layanan",
+    "portfolio": "Portfolio",
+    "pricing": "Harga",
+    "blog": "Blog",
+    "contact": "Kontak",
+    "cta": "Konsultasi Gratis"
+  },
+  "hero": {
+    "badge": "Web Development Agency",
+    "title": "Dari Ide Menjadi Website Profesional.",
+    "subtitle": "Kami membantu UMKM, perusahaan, institusi, dan organisasi membangun website modern berkualitas yang mendorong pertumbuhan bisnis.",
+    "cta_primary": "Konsultasi Sekarang",
+    "cta_secondary": "Lihat Portfolio",
+    "stats_clients": "Klien Puas",
+    "stats_projects": "Proyek Selesai",
+    "stats_years": "Tahun Pengalaman"
+  },
+  "services": {
+    "title": "Layanan Kami",
+    "subtitle": "Solusi pengembangan website lengkap yang disesuaikan dengan kebutuhan bisnis Anda",
+    "items": {
+      "company_profile": {
+        "title": "Company Profile",
+        "desc": "Website company profile profesional untuk membangun kredibilitas dan menampilkan identitas bisnis Anda."
+      },
+      "landing_page": {
+        "title": "Landing Page",
+        "desc": "Landing page dengan konversi tinggi untuk kampanye marketing, peluncuran produk, dan promosi."
+      },
+      "ecommerce": {
+        "title": "E-Commerce",
+        "desc": "Toko online lengkap dengan integrasi pembayaran aman dan manajemen inventaris."
+      },
+      "dashboard": {
+        "title": "Dashboard & Analitik",
+        "desc": "Dashboard data interaktif dan alat business intelligence untuk pengambilan keputusan berbasis data."
+      },
+      "erp": {
+        "title": "Sistem ERP",
+        "desc": "Sistem perencanaan sumber daya perusahaan terintegrasi untuk menyederhanakan operasi bisnis."
+      },
+      "crm": {
+        "title": "Sistem CRM",
+        "desc": "Sistem manajemen hubungan pelanggan untuk mengelola interaksi dan mengembangkan prospek."
+      }
+    }
+  },
+  "workflow": {
+    "title": "Cara Kami Bekerja",
+    "subtitle": "Proses terbukti untuk menghadirkan website Anda tepat waktu dan sesuai anggaran",
+    "steps": {
+      "consultation": { "title": "Konsultasi", "desc": "Kami mendiskusikan kebutuhan, tujuan, dan visi Anda untuk proyek ini." },
+      "research": { "title": "Riset", "desc": "Analisis pasar, riset kompetitor, dan perencanaan teknis." },
+      "design": { "title": "Desain", "desc": "Desain UI/UX dengan estetika modern dan pendekatan berpusat pada pengguna." },
+      "development": { "title": "Development", "desc": "Pengembangan kode bersih dengan teknologi terkini." },
+      "testing": { "title": "Testing", "desc": "Jaminan kualitas ketat di berbagai perangkat dan browser." },
+      "launch": { "title": "Launch", "desc": "Deployment, optimasi, dan dukungan go-live." },
+      "support": { "title": "Support", "desc": "Pemeliharaan berkelanjutan dan dukungan prioritas." }
+    }
+  },
+  "portfolio": {
+    "title": "Portfolio Kami",
+    "subtitle": "Proyek terbaru yang kami selesaikan dengan bangga",
+    "view_detail": "Lihat Detail",
+    "all": "Semua",
+    "categories": {
+      "company": "Company Profile",
+      "landing": "Landing Page",
+      "ecommerce": "E-Commerce",
+      "dashboard": "Dashboard",
+      "system": "Sistem"
+    }
+  },
+  "pricing": {
+    "title": "Paket Harga",
+    "subtitle": "Pilih paket yang sesuai dengan kebutuhan Anda. Semua paket termasuk konsultasi gratis.",
+    "recommended": "Rekomendasi",
+    "starter": {
+      "name": "Starter",
+      "price": "Rp 3.500.000",
+      "desc": "Cocok untuk usaha kecil yang memulai kehadiran online",
+      "features": {
+        "pages": "5 Halaman",
+        "language": "1 Bahasa",
+        "cms": "Tanpa CMS",
+        "database": "Tanpa Database",
+        "seo": "SEO Dasar",
+        "revision": "1x Revisi Mayor",
+        "support": "Support Standar"
+      }
+    },
+    "profesional": {
+      "name": "Professional",
+      "price": "Rp 5.500.000",
+      "desc": "Pilihan terbaik untuk bisnis berkembang yang membutuhkan fitur lebih",
+      "features": {
+        "pages": "7-8 Halaman",
+        "language": "2 Bahasa (ID + EN)",
+        "cms": "CMS Dasar + 1 Sesi Pelatihan",
+        "database": "Database Ringan",
+        "seo": "SEO Dasar + Sitemap",
+        "revision": "2x Revisi Mayor",
+        "support": "Support Prioritas"
+      }
+    },
+    "premium": {
+      "name": "Premium",
+      "price": "Rp 7.000.000",
+      "desc": "Solusi lengkap untuk bisnis dengan kebutuhan lanjutan",
+      "features": {
+        "pages": "Semua Professional + Custom",
+        "language": "Sampai 3 Bahasa",
+        "cms": "CMS Lengkap",
+        "database": "Database Lengkap",
+        "seo": "SEO Lanjutan + Tracking",
+        "revision": "Revisi Fleksibel",
+        "support": "Prioritas 24/7 + Maintenance 3 Bulan"
+      }
+    },
+    "cta": "Pilih Paket",
+    "note": "Butuh paket custom? Hubungi kami untuk solusi yang disesuaikan."
+  },
+  "testimonials": {
+    "title": "Kata Klien Kami",
+    "subtitle": "Dipercaya oleh berbagai bisnis di seluruh Indonesia"
+  },
+  "faq": {
+    "title": "Pertanyaan Umum",
+    "subtitle": "Semua yang perlu Anda ketahui tentang layanan kami",
+    "items": [
+      {
+        "q": "Berapa lama waktu pembuatan website?",
+        "a": "Waktu pengerjaan tergantung kompleksitas. Company profile memakan waktu 1-2 minggu, sementara sistem lengkap bisa 4-8 minggu. Kami akan memberikan timeline jelas saat konsultasi."
+      },
+      {
+        "q": "Apakah saya perlu menyediakan konten dan gambar?",
+        "a": "Kami sarankan menyediakan konten sendiri untuk keaslian. Namun, kami bisa membantu copywriting dan foto stok dengan biaya tambahan."
+      },
+      {
+        "q": "Apakah website saya akan responsif di mobile?",
+        "a": "Tentu. Semua website kami dibangun dengan pendekatan mobile-first dan responsif di semua perangkat dan ukuran layar."
+      },
+      {
+        "q": "Apakah Anda menyediakan hosting dan domain?",
+        "a": "Kami bisa membantu pengaturan hosting dan pendaftaran domain. Kami merekomendasikan penyedia terpercaya dan bisa mengurus setup teknisnya."
+      },
+      {
+        "q": "Bisakah saya mengupdate website sendiri setelah launch?",
+        "a": "Untuk paket Professional dan Premium, kami menyediakan CMS yang memudahkan Anda mengupdate konten. Kami juga menyediakan sesi pelatihan."
+      },
+      {
+        "q": "Bagaimana jika saya perlu perubahan setelah proyek selesai?",
+        "a": "Kami menawarkan paket maintenance dan selalu tersedia untuk pengembangan tambahan. Paket Premium termasuk maintenance gratis 3 bulan."
+      }
+    ]
+  },
+  "cta_section": {
+    "title": "Siap Membangun Website?",
+    "subtitle": "Mari diskusikan proyek Anda. Konsultasi gratis tanpa kewajiban.",
+    "button": "Hubungi Kami Sekarang"
+  },
+  "footer": {
+    "description": "Agency pengembangan website profesional yang membantu bisnis berkembang dengan website modern dan berkualitas tinggi.",
+    "services_title": "Layanan",
+    "quick_links": "Tautan Cepat",
+    "contact_title": "Kontak",
+    "contact_wa": "0852-8388-6884",
+    "contact_email": "sr01@wearehackerone.com",
+    "copyright": "© 2024 Garapin.id. Hak cipta dilindungi.",
+    "made_with": "Dibuat dengan",
+    "in_indonesia": "di Indonesia"
+  },
+  "about": {
+    "title": "Tentang Kami",
+    "subtitle": "Kenali tim di balik Garapin.id",
+    "story_title": "Cerita Kami",
+    "story": "Garapin.id didirikan oleh Mustofa Habibi Bafadhal dengan visi yang jelas: membuat pengembangan website profesional terjangkau oleh bisnis dari semua skala. Kami percaya setiap bisnis berhak memiliki kehadiran digital yang mencerminkan kualitas dan profesionalismenya.\n\nBerawal dari passion terhadap teknologi dan desain, kami telah tumbuh menjadi agency web development terpercaya yang melayani UMKM, korporasi, instansi pemerintah, sekolah, rumah sakit, dan berbagai organisasi lain di seluruh Indonesia.",
+    "vision_title": "Visi & Misi",
+    "vision": "Menjadi mitra pengembangan website paling terpercaya di Indonesia, dikenal karena kualitas, integritas, dan inovasi.",
+    "mission": "Menghadirkan website berkualitas tinggi yang mendorong hasil bisnis nyata. Menjaga komunikasi transparan dan praktik jujur. Berinovasi terus dengan teknologi terkini. Memberikan dukungan pasca-launch yang luar biasa.",
+    "values_title": "Nilai Kami",
+    "values": {
+      "quality": { "title": "Utamakan Kualitas", "desc": "Kami tidak pernah berkompromi dengan kualitas. Setiap piksel, setiap baris kode berarti." },
+      "integrity": { "title": "Integritas", "desc": "Komunikasi jujur, janji realistis, dan harga transparan." },
+      "innovation": { "title": "Inovasi", "desc": "Selalu belajar dan mengadopsi teknologi serta praktik terbaik." },
+      "support": { "title": "Komitmen", "desc": "Kami bertanggung jawab atas karya kami dan memberikan dukungan berkelanjutan." }
+    },
+    "founder_title": "Pendiri",
+    "founder_name": "Mustofa Habibi Bafadhal",
+    "founder_role": "Founder & Lead Developer",
+    "founder_desc": "Dengan pengalaman bertahun-tahun di pengembangan web dan pemahaman mendalam tentang kebutuhan bisnis, Mustofa memimpin tim dalam menghadirkan solusi digital yang luar biasa."
+  },
+  "contact": {
+    "title": "Hubungi Kami",
+    "subtitle": "Siap memulai proyek Anda? Isi form di bawah dan kami akan menghubungi Anda dalam 24 jam.",
+    "form": {
+      "name": "Nama Lengkap",
+      "name_placeholder": "Nama lengkap Anda",
+      "company": "Perusahaan/Instansi (opsional)",
+      "company_placeholder": "Nama perusahaan Anda",
+      "contact": "WhatsApp / Email",
+      "contact_placeholder": "Nomor WhatsApp atau email Anda",
+      "website_type": "Jenis Website",
+      "website_type_placeholder": "Pilih jenis website",
+      "website_options": {
+        "company": "Company Profile",
+        "landing": "Landing Page",
+        "ecommerce": "E-Commerce",
+        "dashboard": "Dashboard",
+        "other": "Lainnya"
+      },
+      "package": "Paket yang Diminati",
+      "package_placeholder": "Pilih paket",
+      "package_options": {
+        "starter": "Starter",
+        "profesional": "Professional",
+        "premium": "Premium",
+        "unknown": "Belum Tahu"
+      },
+      "message": "Pesan Tambahan",
+      "message_placeholder": "Ceritakan kebutuhan proyek Anda...",
+      "submit": "Kirim Pesan",
+      "sending": "Mengirim...",
+      "success": "Pesan berhasil dikirim! Kami akan menghubungi Anda segera.",
+      "error": "Gagal mengirim pesan. Silakan coba lagi."
+    },
+    "info_title": "Informasi Kontak",
+    "info_wa": "WhatsApp",
+    "info_email": "Email",
+    "info_response": "Waktu Respon",
+    "info_response_text": "Dalam 24 jam"
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Wawasan, tips, dan update dari tim Garapin.id",
+    "read_more": "Baca Selengkapnya",
+    "categories": {
+      "web-development": "Web Development",
+      "ui-ux": "UI/UX Design",
+      "seo": "SEO",
+      "business": "Bisnis",
+      "technology": "Teknologi"
+    },
+    "related": "Artikel Terkait",
+    "not_found": "Artikel tidak ditemukan"
+  },
+  "not_found": {
+    "title": "Halaman Tidak Ditemukan",
+    "desc": "Halaman yang Anda cari tidak ada atau telah dipindahkan.",
+    "cta": "Kembali ke Beranda"
+  }
+}
