@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -61,12 +62,14 @@ export function Navbar({ dict, lang }: NavbarProps) {
             href={`/${lang}`}
             className="flex items-center gap-2 group"
           >
-            <div className="w-8 h-8 bg-garapin-orange rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">G</span>
-            </div>
-            <span className="text-xl font-bold text-garapin-navy">
-              Garapin<span className="text-garapin-orange">.id</span>
-            </span>
+            <Image
+              src="/garapin-logo-transparent.png"
+              alt="Garapin.id"
+              width={120}
+              height={32}
+              priority
+              className="h-8 w-auto lg:h-10"
+            />
           </Link>
 
           {/* Desktop Nav */}

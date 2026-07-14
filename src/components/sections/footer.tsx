@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/types/dictionary";
 
@@ -30,9 +31,13 @@ export function Footer({ dict, lang }: FooterProps) {
           {/* Brand */}
           <div className="space-y-4">
             <Link href={`/${lang}`} className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-garapin-orange rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">G</span>
-              </div>
+              <Image
+                src="/icon-192.png"
+                alt="Garapin.id"
+                width={32}
+                height={32}
+                className="h-8 w-8"
+              />
               <span className="text-xl font-bold">
                 Garapin<span className="text-garapin-orange">.id</span>
               </span>
