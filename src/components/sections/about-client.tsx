@@ -69,7 +69,7 @@ export function AboutClient({ dict }: AboutClientProps) {
               className="bg-white rounded-2xl p-8 border border-garapin-border"
             >
               <Eye size={32} className="text-garapin-orange mb-4" />
-              <h3 className="text-2xl font-bold text-garapin-navy mb-4">{dict.vision_title} - Visi</h3>
+              <h3 className="text-2xl font-bold text-garapin-navy mb-4">Visi</h3>
               <p className="text-garapin-slate leading-relaxed">{dict.vision}</p>
             </motion.div>
 
@@ -80,7 +80,7 @@ export function AboutClient({ dict }: AboutClientProps) {
               className="bg-white rounded-2xl p-8 border border-garapin-border"
             >
               <Target size={32} className="text-garapin-orange mb-4" />
-              <h3 className="text-2xl font-bold text-garapin-navy mb-4">{dict.vision_title} - Misi</h3>
+              <h3 className="text-2xl font-bold text-garapin-navy mb-4">Misi</h3>
               <p className="text-garapin-slate leading-relaxed">{dict.mission}</p>
             </motion.div>
           </div>

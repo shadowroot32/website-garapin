@@ -19,6 +19,11 @@ import {
   Search,
   Rocket,
   Shield,
+  Globe,
+  Megaphone,
+  GraduationCap,
+  HeartPulse,
+  Database,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -155,23 +160,73 @@ function HeroSection({ dict }: { dict: Dictionary["hero"] }) {
             className="hidden lg:block"
           >
             <div className="relative">
-              <div className="relative bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 p-6 shadow-2xl">
-                <div className="flex items-center gap-2 mb-4">
+              <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden">
+                {/* Browser chrome */}
+                <div className="flex items-center gap-2 px-4 py-3 bg-garapin-navy border-b border-white/10">
                   <div className="w-3 h-3 rounded-full bg-red-500" />
                   <div className="w-3 h-3 rounded-full bg-yellow-500" />
                   <div className="w-3 h-3 rounded-full bg-green-500" />
-                </div>
-                <div className="space-y-3">
-                  <div className="h-4 w-3/4 bg-white/10 rounded" />
-                  <div className="h-4 w-1/2 bg-white/10 rounded" />
-                  <div className="h-32 bg-white/5 rounded-lg mt-4" />
-                  <div className="grid grid-cols-3 gap-3 mt-4">
-                    <div className="h-20 bg-white/5 rounded-lg" />
-                    <div className="h-20 bg-white/5 rounded-lg" />
-                    <div className="h-20 bg-white/5 rounded-lg" />
+                  <div className="ml-4 flex-1 max-w-md h-6 rounded-md bg-white/10 flex items-center px-3">
+                    <span className="text-xs text-white/50">garapin.id</span>
                   </div>
                 </div>
-                <div className="absolute -inset-1 bg-gradient-to-r from-garapin-orange/20 to-transparent rounded-2xl blur-xl -z-10" />
+                {/* Mockup content */}
+                <div className="p-5 bg-white">
+                  {/* Navbar mockup */}
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+                    <div className="flex items-center gap-2">
+                      <div className="w-6 h-6 rounded-md bg-garapin-orange" />
+                      <div className="h-3 w-20 bg-gray-200 rounded" />
+                    </div>
+                    <div className="flex gap-4">
+                      <div className="h-2 w-10 bg-gray-100 rounded" />
+                      <div className="h-2 w-10 bg-gray-100 rounded" />
+                      <div className="h-2 w-10 bg-gray-100 rounded" />
+                    </div>
+                  </div>
+                  {/* Hero section mockup */}
+                  <div className="mb-6">
+                    <div className="h-3 w-16 bg-garapin-orange/20 rounded-full mb-3" />
+                    <div className="h-5 w-3/4 bg-gray-800 rounded mb-2" />
+                    <div className="h-5 w-1/2 bg-gray-800 rounded mb-3" />
+                    <div className="h-3 w-full bg-gray-100 rounded" />
+                    <div className="h-3 w-5/6 bg-gray-100 rounded mt-1" />
+                  </div>
+                  {/* Cards grid */}
+                  <div className="grid grid-cols-3 gap-3">
+                    <div className="p-3 rounded-lg border border-gray-100">
+                      <div className="w-8 h-8 rounded-lg bg-garapin-orange-muted mb-2" />
+                      <div className="h-2 w-16 bg-gray-200 rounded mb-1" />
+                      <div className="h-2 w-full bg-gray-100 rounded" />
+                    </div>
+                    <div className="p-3 rounded-lg border border-gray-100">
+                      <div className="w-8 h-8 rounded-lg bg-garapin-orange-muted mb-2" />
+                      <div className="h-2 w-16 bg-gray-200 rounded mb-1" />
+                      <div className="h-2 w-full bg-gray-100 rounded" />
+                    </div>
+                    <div className="p-3 rounded-lg border border-gray-100">
+                      <div className="w-8 h-8 rounded-lg bg-garapin-orange-muted mb-2" />
+                      <div className="h-2 w-16 bg-gray-200 rounded mb-1" />
+                      <div className="h-2 w-full bg-gray-100 rounded" />
+                    </div>
+                  </div>
+                  {/* Stats bar */}
+                  <div className="mt-4 pt-4 border-t border-gray-100 flex justify-around">
+                    <div className="text-center">
+                      <div className="h-4 w-8 bg-gray-800 rounded mx-auto mb-1" />
+                      <div className="h-2 w-12 bg-gray-100 rounded mx-auto" />
+                    </div>
+                    <div className="text-center">
+                      <div className="h-4 w-8 bg-gray-800 rounded mx-auto mb-1" />
+                      <div className="h-2 w-12 bg-gray-100 rounded mx-auto" />
+                    </div>
+                    <div className="text-center">
+                      <div className="h-4 w-8 bg-gray-800 rounded mx-auto mb-1" />
+                      <div className="h-2 w-12 bg-gray-100 rounded mx-auto" />
+                    </div>
+                  </div>
+                </div>
+                <div className="absolute -inset-1 bg-gradient-to-r from-garapin-orange/20 to-transparent rounded-xl blur-xl -z-10" />
               </div>
             </div>
           </motion.div>
@@ -214,53 +269,32 @@ function WorkflowSection({ dict }: { dict: Dictionary["workflow"] }) {
   const steps = Object.entries(dict.steps);
   return (
     <section className="py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading title={dict.title} subtitle={dict.subtitle} />
         <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-garapin-orange via-garapin-orange/50 to-transparent hidden lg:block" />
-          <div className="space-y-12 lg:space-y-0">
+          {/* Timeline line */}
+          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-garapin-orange via-garapin-orange/50 to-transparent" />
+          <div className="space-y-10">
             {steps.map(([key, step], i) => (
               <motion.div
                 key={key}
-                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ delay: i * 0.1 }}
-                className="relative flex items-start gap-6 lg:gap-0 lg:even:flex-row-reverse"
+                className="relative flex items-start gap-6 pl-0"
               >
-                <div className="hidden lg:flex w-1/2 items-center justify-center">
-                  <div className="lg:mx-auto lg:max-w-sm">
-                    {i % 2 === 0 ? (
-                      <div className="pr-12">
-                        <h3 className="text-xl font-semibold text-garapin-navy mb-2">{step.title}</h3>
-                        <p className="text-garapin-gray">{step.desc}</p>
-                      </div>
-                    ) : (
-                      <div />
-                    )}
-                  </div>
-                </div>
-
+                {/* Circle connector */}
                 <div className="relative z-10 flex-shrink-0">
                   <div className="w-16 h-16 rounded-full bg-garapin-orange-muted border-4 border-white shadow-md flex items-center justify-center text-garapin-orange">
                     {workflowIcons[key]}
                   </div>
                 </div>
 
-                <div className="flex-1 lg:hidden">
+                {/* Content */}
+                <div className="flex-1 pt-3">
                   <h3 className="text-xl font-semibold text-garapin-navy mb-2">{step.title}</h3>
                   <p className="text-garapin-gray">{step.desc}</p>
-                </div>
-
-                <div className="hidden lg:flex w-1/2 items-center">
-                  <div className="max-w-sm">
-                    {i % 2 !== 0 && (
-                      <div className="pl-12">
-                        <h3 className="text-xl font-semibold text-garapin-navy mb-2">{step.title}</h3>
-                        <p className="text-garapin-gray">{step.desc}</p>
-                      </div>
-                    )}
-                  </div>
                 </div>
               </motion.div>
             ))}
@@ -320,9 +354,37 @@ function PortfolioSection({ dict }: { dict: Dictionary["portfolio"] }) {
               transition={{ delay: i * 0.05 }}
               className="group bg-white rounded-2xl overflow-hidden border border-garapin-border hover:shadow-xl transition-all duration-300"
             >
-              <div className="aspect-video bg-gradient-to-br from-garapin-dark to-garapin-navy flex items-center justify-center relative overflow-hidden">
-                <Monitor size={48} className="text-white/20" />
-                <div className="absolute inset-0 bg-gradient-to-t from-garapin-navy/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="aspect-video flex items-center justify-center relative overflow-hidden">
+                {item.category === "company" && (
+                  <div className="w-full h-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center">
+                    <Building2 size={48} className="text-white/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
+                )}
+                {item.category === "landing" && (
+                  <div className="w-full h-full bg-gradient-to-br from-purple-900 to-purple-700 flex items-center justify-center">
+                    <Megaphone size={48} className="text-white/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
+                )}
+                {item.category === "ecommerce" && (
+                  <div className="w-full h-full bg-gradient-to-br from-emerald-900 to-emerald-700 flex items-center justify-center">
+                    <ShoppingCart size={48} className="text-white/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
+                )}
+                {item.category === "dashboard" && (
+                  <div className="w-full h-full bg-gradient-to-br from-amber-900 to-amber-700 flex items-center justify-center">
+                    <BarChart3 size={48} className="text-white/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
+                )}
+                {item.category === "system" && (
+                  <div className="w-full h-full bg-gradient-to-br from-rose-900 to-rose-700 flex items-center justify-center">
+                    <Database size={48} className="text-white/30" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                  </div>
+                )}
               </div>
               <div className="p-5">
                 <span className="text-xs font-medium text-garapin-orange uppercase tracking-wider">

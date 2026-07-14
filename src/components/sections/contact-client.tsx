@@ -25,14 +25,12 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     setStatus("sending");
-
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...formData, lang }),
       });
-
       if (res.ok) {
         setStatus("success");
         setFormData({ name: "", company: "", contact: "", websiteType: "", package: "", message: "" });
@@ -42,13 +40,12 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
     } catch {
       setStatus("error");
     }
-
     setTimeout(() => setStatus("idle"), 5000);
   };
 
   return (
     <>
-      <section className="pt-32 pb-16 bg-gradient-to-br from-garapin-navy to-garapin-dark text-white">
+      <section className="pt-36 pb-16 bg-gradient-to-br from-garapin-navy to-garapin-dark text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-4xl sm:text-5xl font-bold mb-4">
             {dict.title}
@@ -185,10 +182,13 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
                     </div>
                     <div>
                       <div className="text-xs text-garapin-gray">{dict.info_wa}</div>
-                      <div className="text-sm font-medium text-garapin-navy">{dict.form.contact_placeholder}</div>
+                      <div className="text-sm font-medium text-garapin-navy">0852-8388-6884</div>
                     </div>
                   </a>
-                  <a href="mailto:sr01@wearehackerone.com" className="flex items-center gap-4 group">
+                  <a
+                    href="mailto:sr01@wearehackerone.com"
+                    className="flex items-center gap-4 group"
+                  >
                     <div className="w-10 h-10 rounded-lg bg-garapin-orange-muted text-garapin-orange flex items-center justify-center group-hover:bg-garapin-orange group-hover:text-white transition-all">
                       <Mail size={18} />
                     </div>
