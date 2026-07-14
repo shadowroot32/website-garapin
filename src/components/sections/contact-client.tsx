@@ -186,7 +186,7 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
                     </div>
                   </a>
                   <a
-                    href="mailto:sr01@wearehackerone.com"
+                    href="mailto:hello@garapin.id"
                     className="flex items-center gap-4 group"
                   >
                     <div className="w-10 h-10 rounded-lg bg-garapin-orange-muted text-garapin-orange flex items-center justify-center group-hover:bg-garapin-orange group-hover:text-white transition-all">
@@ -194,7 +194,7 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
                     </div>
                     <div>
                       <div className="text-xs text-garapin-gray">{dict.info_email}</div>
-                      <div className="text-sm font-medium text-garapin-navy">sr01@wearehackerone.com</div>
+                      <div className="text-sm font-medium text-garapin-navy">hello@garapin.id</div>
                     </div>
                   </a>
                   <div className="flex items-center gap-4">

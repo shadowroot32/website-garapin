@@ -101,11 +101,11 @@ export function Footer({ dict, lang }: FooterProps) {
               </li>
               <li>
                 <a
-                  href={`mailto:sr01@wearehackerone.com`}
+                  href={`mailto:hello@garapin.id`}
                   className="flex items-center gap-3 text-garapin-light hover:text-white transition-colors group"
                 >
                   <Mail size={16} className="text-garapin-orange shrink-0" />
-                  <span className="text-sm">{dict.contact_email}</span>
+                  <span className="text-sm">hello@garapin.id</span>
                 </a>
               </li>
               <li className="flex items-center gap-3 text-garapin-light">
