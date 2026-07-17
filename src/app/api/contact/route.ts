@@ -13,15 +13,20 @@ export async function POST(request: Request) {
     }
 
     // In production, this would send email via SMTP or forward to WhatsApp
-    // For now, log the submission
-    console.log("Contact form submission:", {
+    // Now we save it to Firestore Inbox
+    const { collection, addDoc, serverTimestamp } = require("firebase/firestore");
+    const { db } = require("@/lib/firebase/config");
+
+    await addDoc(collection(db, "inbox"), {
       name,
-      company,
+      company: company || "",
       contact,
       websiteType,
       package: pkg,
-      message,
+      message: message || "",
       lang,
+      createdAt: serverTimestamp(),
+      read: false,
     });
 
     return NextResponse.json(
