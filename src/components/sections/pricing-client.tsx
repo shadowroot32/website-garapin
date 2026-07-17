@@ -89,11 +89,11 @@ export function PricingClient({ dict, lang }: PricingClientProps) {
                     </li>
                   ))}
                 </ul>
-                <Link href={`/${lang}/contact`}>
-                  <Button variant={tier.highlighted ? "primary" : "outline"} size="md" className="w-full">
+                <Button asChild variant={tier.highlighted ? "primary" : "outline"} size="md" className="w-full">
+                  <Link href={`/${lang}/contact`}>
                     {dict.cta}
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </motion.div>
             ))}
           </div>
@@ -111,11 +111,11 @@ export function PricingClient({ dict, lang }: PricingClientProps) {
               ? "Setiap bisnis memiliki kebutuhan unik. Hubungi kami untuk solusi yang disesuaikan dengan anggaran dan kebutuhan Anda."
               : "Every business is unique. Contact us for a tailored solution that fits your specific needs and budget."}
           </p>
-          <Link href={`/${lang}/contact`}>
-            <Button variant="primary" size="lg">
+          <Button asChild variant="primary" size="lg">
+            <Link href={`/${lang}/contact`}>
               {lang === "id" ? "Hubungi Kami" : "Contact Us"} <ArrowRight className="ml-2" size={18} />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </>

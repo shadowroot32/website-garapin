@@ -71,11 +71,11 @@ export function ServicesClient({ dict, lang }: ServicesClientProps) {
               ? "Konsultasi gratis dengan tim kami untuk mendiskusikan kebutuhan website Anda."
               : "Get a free consultation with our team to discuss your website requirements."}
           </p>
-          <Link href={`/${lang}/contact`}>
-            <Button variant="primary" size="lg">
+          <Button asChild variant="primary" size="lg">
+            <Link href={`/${lang}/contact`}>
               {lang === "id" ? "Konsultasi Gratis" : "Free Consultation"} <ArrowRight className="ml-2" size={18} />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
       </section>
     </>

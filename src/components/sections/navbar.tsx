@@ -88,11 +88,11 @@ export function Navbar({ dict, lang }: NavbarProps) {
           {/* Desktop Right */}
           <div className="hidden lg:flex items-center gap-4">
             <LanguageSwitcher currentLocale={lang} />
-            <Link href={`/${lang}/contact`}>
-              <Button variant="primary" size="sm">
+            <Button asChild variant="primary" size="sm">
+              <Link href={`/${lang}/contact`}>
                 {dict.cta}
-              </Button>
-            </Link>
+              </Link>
+            </Button>
           </div>
 
           {/* Mobile Toggle */}
@@ -130,11 +130,11 @@ export function Navbar({ dict, lang }: NavbarProps) {
               <div className="pt-4 border-t border-garapin-border">
                 <LanguageSwitcher currentLocale={lang} />
               </div>
-              <Link href={`/${lang}/contact`} onClick={() => setIsMobileOpen(false)}>
-                <Button variant="primary" size="md" className="w-full">
+              <Button asChild variant="primary" size="md" className="w-full">
+                <Link href={`/${lang}/contact`} onClick={() => setIsMobileOpen(false)}>
                   {dict.cta}
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
           </motion.div>
         )}

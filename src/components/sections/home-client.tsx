@@ -124,17 +124,17 @@ function HeroSection({ dict, lang }: { dict: Dictionary["hero"]; lang: string })
               {dict.subtitle}
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link href="#contact">
-                <Button variant="primary" size="lg">
+              <Button asChild variant="primary" size="lg">
+                <Link href="#contact">
                   {dict.cta_primary}
                   <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
-              <Link href="#portfolio">
-                <Button variant="white" size="lg">
+                </Link>
+              </Button>
+              <Button asChild variant="white" size="lg">
+                <Link href="#portfolio">
                   {dict.cta_secondary}
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </div>
 
             <div className="flex gap-8 mt-12 pt-8 border-t border-white/10">
@@ -523,8 +523,10 @@ function PricingSection({ dict }: { dict: Dictionary["pricing"] }) {
                 ))}
               </ul>
 
-              <Button variant={tier.highlighted ? "primary" : "outline"} size="md" className="w-full">
-                {dict.cta}
+              <Button asChild variant={tier.highlighted ? "primary" : "outline"} size="md" className="w-full">
+                <Link href="#contact">
+                  {dict.cta}
+                </Link>
               </Button>
             </motion.div>
           ))}
@@ -666,12 +668,12 @@ function CTASection({ dict, lang }: { dict: Dictionary["cta_section"]; lang: str
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">{dict.title}</h2>
           <p className="text-garapin-light text-lg mb-8">{dict.subtitle}</p>
-          <Link href={`/${lang}/contact`}>
-            <Button variant="primary" size="xl">
+          <Button asChild variant="primary" size="xl">
+            <Link href={`/${lang}/contact`}>
               {dict.button}
               <ArrowRight className="ml-2" size={20} />
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </motion.div>
       </div>
     </section>
