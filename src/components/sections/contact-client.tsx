@@ -202,7 +202,7 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
                 <h3 className="text-lg font-semibold text-garapin-navy mb-6">{dict.info_title}</h3>
                 <div className="space-y-5">
                   <a
-                    href="https://wa.me/6285283886884"
+                    href="https://wa.me/6285283868884"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 group"
@@ -212,7 +212,7 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
                     </div>
                     <div>
                       <div className="text-xs text-garapin-gray">{dict.info_wa}</div>
-                      <div className="text-sm font-medium text-garapin-navy">0852-8388-6884</div>
+                      <div className="text-sm font-medium text-garapin-navy">0852-8386-8884</div>
                     </div>
                   </a>
                   <a

@@ -100,7 +100,7 @@ export function Footer({ dict, lang, servicesDict }: FooterProps) {
             <ul className="space-y-4">
               <li>
                 <a
-                  href={`https://wa.me/6285283886884`}
+                  href={`https://wa.me/6285283868884`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-garapin-light hover:text-white transition-colors group"
