@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -28,7 +28,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/dictionary";
-import { portfolioItems } from "@/data/portfolio";
+import { getPortfolios, PortfolioItem } from "@/lib/firebase/portfolio-service";
 import { PortfolioPreview } from "@/components/ui/portfolio-preview";
 
 interface HomeClientProps {
@@ -365,6 +365,22 @@ function WorkflowSection({ dict }: { dict: Dictionary["workflow"] }) {
 
 function PortfolioSection({ dict, lang }: { dict: Dictionary["portfolio"]; lang: string }) {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await getPortfolios();
+        setPortfolioItems(data);
+      } catch (err) {
+        console.error("Gagal mengambil data portfolio", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, []);
 
   const categories = [
     { key: "all", label: dict.all },

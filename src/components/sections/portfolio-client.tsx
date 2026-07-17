@@ -5,8 +5,9 @@ import { motion } from "framer-motion";
 import { Monitor } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/dictionary";
-import { portfolioItems } from "@/data/portfolio";
+import { getPortfolios, PortfolioItem } from "@/lib/firebase/portfolio-service";
 import { PortfolioPreview } from "@/components/ui/portfolio-preview";
+import { useEffect } from "react";
 
 interface PortfolioClientProps {
   dict: Dictionary["portfolio"];
@@ -15,6 +16,22 @@ interface PortfolioClientProps {
 
 export function PortfolioClient({ dict, lang }: PortfolioClientProps) {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await getPortfolios();
+        setPortfolioItems(data);
+      } catch (err) {
+        console.error("Gagal mengambil data portfolio", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    loadData();
+  }, []);
 
   const categories = [
     { key: "all", label: dict.all },
