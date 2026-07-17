@@ -111,13 +111,16 @@ function HeroSection({ dict, lang }: { dict: Dictionary["hero"]; lang: string })
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-garapin-orange/10 text-garapin-orange border border-garapin-orange/20 mb-6">
+            <span className="inline-flex items-center px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold tracking-wide bg-gradient-to-r from-garapin-orange/20 to-garapin-orange/5 text-garapin-orange border border-garapin-orange/30 shadow-lg shadow-garapin-orange/10 mb-8">
+              <span className="w-2 h-2 rounded-full bg-garapin-orange mr-2 animate-pulse" />
               {dict.badge}
             </span>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
-              {dict.title}
+            <h1 className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-[1.1] mb-6 tracking-tight">
+              {dict.title.split(' ').map((word, i, arr) => 
+                (i >= arr.length - 2) ? <span key={i} className="text-gradient"> {word}</span> : <span key={i}> {word}</span>
+              )}
             </h1>
-            <p className="text-lg text-garapin-light leading-relaxed mb-8 max-w-xl">
+            <p className="text-lg sm:text-xl text-garapin-light leading-relaxed mb-10 max-w-xl font-medium">
               {dict.subtitle}
             </p>
             <div className="flex flex-wrap gap-4">
@@ -157,9 +160,43 @@ function HeroSection({ dict, lang }: { dict: Dictionary["hero"]; lang: string })
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="hidden lg:block"
+            className="hidden lg:block relative"
           >
-            <div className="relative">
+            {/* Floating Badge 1 */}
+            <motion.div 
+              className="absolute -left-12 top-1/4 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl shadow-2xl z-20"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400">
+                  <Shield size={20} />
+                </div>
+                <div>
+                  <div className="text-white font-bold text-sm">Aman & Cepat</div>
+                  <div className="text-white/60 text-xs">Uptime 99.9%</div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Floating Badge 2 */}
+            <motion.div 
+              className="absolute -right-8 bottom-1/3 bg-white/10 backdrop-blur-md border border-white/20 p-4 rounded-2xl shadow-2xl z-20"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-garapin-orange/20 flex items-center justify-center text-garapin-orange">
+                  <Star size={20} className="fill-garapin-orange" />
+                </div>
+                <div>
+                  <div className="text-white font-bold text-sm">Top Rated</div>
+                  <div className="text-white/60 text-xs">Desain Premium</div>
+                </div>
+              </div>
+            </motion.div>
+
+            <div className="relative z-10">
               <div className="relative glass-panel-dark rounded-xl shadow-2xl overflow-hidden border border-white/10">
                 {/* Browser chrome */}
                 <div className="flex items-center gap-2 px-4 py-3 bg-slate-950/80 border-b border-white/10">
@@ -220,6 +257,37 @@ function HeroSection({ dict, lang }: { dict: Dictionary["hero"]; lang: string })
               </div>
             </div>
           </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TrustMarqueeSection() {
+  const logos = [
+    "TechCorp Indonesia", "Global Exim", "Kopi Nusantara", 
+    "Sinar Jaya Logistics", "Agro Makmur", "Digital Kreatif", 
+    "Mandiri Solusi", "EduTech Bina", "Sentosa E-Commerce"
+  ];
+  return (
+    <section className="py-12 bg-white border-b border-garapin-border overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-6 text-center">
+        <p className="text-sm font-semibold text-garapin-gray uppercase tracking-widest">
+          Dipercaya oleh 50+ UMKM & Perusahaan di Seluruh Indonesia
+        </p>
+      </div>
+      <div className="relative flex overflow-hidden group">
+        {/* Left Gradient Fade */}
+        <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-white to-transparent z-10" />
+        {/* Right Gradient Fade */}
+        <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-white to-transparent z-10" />
+        
+        <div className="flex space-x-8 animate-marquee group-hover:[animation-play-state:paused] w-max">
+          {[...logos, ...logos, ...logos].map((logo, i) => (
+            <div key={i} className="flex items-center justify-center px-8 py-4 bg-garapin-bg/50 rounded-2xl border border-garapin-border/60 hover:border-garapin-orange/30 hover:shadow-md transition-all duration-300 min-w-[200px]">
+              <span className="font-bold text-lg text-garapin-slate/80 font-heading tracking-tight">{logo}</span>
+            </div>
+          ))}
         </div>
       </div>
     </section>
@@ -466,17 +534,29 @@ function TestimonialsSection({ dict }: { dict: Dictionary["testimonials"] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white p-6 rounded-2xl border border-garapin-border"
+              className="relative p-8 rounded-3xl bg-white hover:bg-garapin-bg/50 border border-garapin-border hover:border-garapin-orange/30 hover:shadow-2xl hover:shadow-garapin-orange/10 transition-all duration-300 group"
             >
-              <div className="flex gap-1 mb-3">
+              <div className="absolute top-8 right-8 text-garapin-border/50 group-hover:text-garapin-orange/20 transition-colors">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.017 18L14.017 10.609C14.017 4.905 17.748 1.039 23 0L23.995 2.151C21.563 3.068 20 5.789 20 8H24V18H14.017ZM0 18V10.609C0 4.905 3.748 1.038 9 0L9.996 2.151C7.563 3.068 6 5.789 6 8H9.983L9.983 18L0 18Z" />
+                </svg>
+              </div>
+              <div className="flex gap-1 mb-6">
                 {Array.from({ length: t.rating }).map((_, j) => (
-                  <Star key={j} size={16} className="fill-yellow-400 text-yellow-400" />
+                  <Star key={j} size={18} className="fill-garapin-warning text-garapin-warning" />
                 ))}
               </div>
-              <p className="text-garapin-slate text-sm leading-relaxed mb-4">&ldquo;{t.content}&rdquo;</p>
-              <div>
-                <div className="font-semibold text-garapin-navy text-sm">{t.name}</div>
-                <div className="text-garapin-gray text-xs">{t.role}</div>
+              <p className="text-garapin-slate text-base sm:text-lg font-medium leading-relaxed mb-8 relative z-10">
+                &ldquo;{t.content}&rdquo;
+              </p>
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-garapin-navy to-garapin-slate flex items-center justify-center text-white font-bold text-lg">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <div className="font-bold text-garapin-navy text-sm">{t.name}</div>
+                  <div className="text-garapin-gray text-xs mt-0.5">{t.role}</div>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -501,20 +581,35 @@ function FAQSection({ dict }: { dict: Dictionary["faq"] }) {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
-              className="border border-garapin-border rounded-xl overflow-hidden"
+              className={cn(
+                "border rounded-xl overflow-hidden transition-all duration-300",
+                openIndex === i 
+                  ? "border-garapin-orange/30 bg-white shadow-lg shadow-garapin-orange/5" 
+                  : "border-garapin-border bg-white hover:border-garapin-orange/20 hover:shadow-md"
+              )}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-4 text-left hover:bg-garapin-bg transition-colors"
+                className="w-full flex items-center justify-between p-5 text-left transition-colors"
               >
-                <span className="font-medium text-garapin-navy text-sm">{item.q}</span>
-                <ChevronDown
-                  size={16}
-                  className={cn("text-garapin-gray transition-transform shrink-0 ml-4", openIndex === i && "rotate-180")}
-                />
+                <span className={cn(
+                  "font-semibold text-base transition-colors",
+                  openIndex === i ? "text-garapin-orange" : "text-garapin-navy"
+                )}>
+                  {item.q}
+                </span>
+                <div className={cn(
+                  "w-8 h-8 rounded-full flex items-center justify-center shrink-0 ml-4 transition-all duration-300",
+                  openIndex === i ? "bg-garapin-orange text-white" : "bg-garapin-bg text-garapin-gray"
+                )}>
+                  <ChevronDown
+                    size={16}
+                    className={cn("transition-transform duration-300", openIndex === i && "rotate-180")}
+                  />
+                </div>
               </button>
-              <div className={cn("overflow-hidden transition-all duration-200", openIndex === i ? "max-h-96" : "max-h-0")}>
-                <p className="p-4 pt-0 text-sm text-garapin-gray leading-relaxed">{item.a}</p>
+              <div className={cn("overflow-hidden transition-all duration-300 ease-in-out", openIndex === i ? "max-h-96 opacity-100" : "max-h-0 opacity-0")}>
+                <p className="p-5 pt-0 text-sm sm:text-base text-garapin-gray leading-relaxed border-t border-garapin-border/50 mx-5">{item.a}</p>
               </div>
             </motion.div>
           ))}
@@ -551,6 +646,7 @@ export function HomeClient({ dict, lang }: HomeClientProps) {
   return (
     <>
       <HeroSection dict={dict.hero} lang={lang} />
+      <TrustMarqueeSection />
       <ServicesSection dict={dict.services} />
       <WorkflowSection dict={dict.workflow} />
       <PortfolioSection dict={dict.portfolio} lang={lang} />
