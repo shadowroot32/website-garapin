@@ -6,8 +6,8 @@ import { Calendar, Clock, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/dictionary";
-import { blogPosts } from "@/data/blog";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { getBlogPosts, BlogPost } from "@/lib/firebase/blog-service";
 
 interface BlogListClientProps {
   dict: Dictionary["blog"];
@@ -16,13 +16,22 @@ interface BlogListClientProps {
 
 export function BlogListClient({ dict, lang }: BlogListClientProps) {
   const [activeCategory, setActiveCategory] = useState("all");
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getBlogPosts().then(data => {
+      setPosts(data);
+      setLoading(false);
+    });
+  }, []);
 
   const categories = [
     { key: "all", label: lang === "id" ? "Semua" : "All" },
     ...Object.entries(dict.categories).map(([key, label]) => ({ key, label })),
   ];
 
-  const filtered = activeCategory === "all" ? blogPosts : blogPosts.filter((p) => p.category === activeCategory);
+  const filtered = activeCategory === "all" ? posts : posts.filter((p) => p.category === activeCategory);
 
   return (
     <>
@@ -65,23 +74,29 @@ export function BlogListClient({ dict, lang }: BlogListClientProps) {
                 transition={{ delay: i * 0.05 }}
                 className="bg-white rounded-2xl overflow-hidden border border-garapin-border hover:shadow-xl transition-all duration-300 group"
               >
-                <div className="aspect-video bg-gradient-to-br from-garapin-orange/20 to-garapin-dark flex items-center justify-center">
-                  <span className="text-4xl font-bold text-white/30">{post.title.charAt(0)}</span>
-                </div>
-                <div className="p-6">
-                  <div className="flex items-center gap-3 text-xs text-garapin-gray mb-3">
-                    <span className="px-2 py-1 bg-garapin-orange-muted text-garapin-orange rounded-md">
-                      {dict.categories[post.category as keyof typeof dict.categories] || post.category}
-                    </span>
-                    <span className="flex items-center gap-1"><Calendar size={12} />{post.date}</span>
-                    <span className="flex items-center gap-1"><Clock size={12} />{post.readTime}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-garapin-navy mb-2 line-clamp-2">{post.title}</h3>
-                  <p className="text-sm text-garapin-gray line-clamp-2 mb-4">{post.excerpt}</p>
-                  <Link
-                    href={`/${lang}/blog/${post.slug}`}
-                    className="inline-flex items-center text-sm font-medium text-garapin-orange hover:text-garapin-orange-light transition-colors group"
-                  >
+                  {post.coverImage ? (
+                    <div className="aspect-video bg-garapin-bg flex items-center justify-center overflow-hidden">
+                      <img src={post.coverImage} alt={post.title} className="w-full h-full object-cover" />
+                    </div>
+                  ) : (
+                    <div className="aspect-video bg-gradient-to-br from-garapin-orange/20 to-garapin-dark flex items-center justify-center">
+                      <span className="text-4xl font-bold text-white/30">{post.title.charAt(0)}</span>
+                    </div>
+                  )}
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 text-xs text-garapin-gray mb-3">
+                      <span className="px-2 py-1 bg-garapin-orange-muted text-garapin-orange rounded-md">
+                        {dict.categories[post.category as keyof typeof dict.categories] || post.category}
+                      </span>
+                      <span className="flex items-center gap-1"><Calendar size={12} />{post.createdAt ? new Date(post.createdAt as Date).toLocaleDateString() : "Baru saja"}</span>
+                      <span className="flex items-center gap-1"><Clock size={12} />5 min read</span>
+                    </div>
+                    <h3 className="text-lg font-semibold text-garapin-navy mb-2 line-clamp-2">{post.title}</h3>
+                    <p className="text-sm text-garapin-gray line-clamp-2 mb-4">{post.excerpt}</p>
+                    <Link
+                      href={`/${lang}/blog/${post.slug}`}
+                      className="inline-flex items-center text-sm font-medium text-garapin-orange hover:text-garapin-orange-light transition-colors group"
+                    >
                     {dict.read_more} <ArrowRight size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
