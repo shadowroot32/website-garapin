@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
+import { auth } from "@/lib/firebase/config";
 import { cn } from "@/lib/utils";
 import { LayoutDashboard, Briefcase, FileText, Inbox, Settings, LogOut } from "lucide-react";
 
@@ -15,6 +17,17 @@ const navItems = [
 
 export function Sidebar() {
   const pathname = usePathname();
+
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      router.push("/admin/login");
+    } catch (error) {
+      console.error("Logout failed", error);
+    }
+  };
 
   return (
     <aside className="w-64 min-h-screen bg-garapin-navy text-white flex flex-col">
@@ -44,7 +57,10 @@ export function Sidebar() {
       </nav>
 
       <div className="p-4 border-t border-white/10">
-        <button className="flex items-center gap-3 px-4 py-3 w-full text-left rounded-lg text-red-400 hover:bg-red-500/10 transition-colors font-medium text-sm">
+        <button 
+          onClick={handleLogout}
+          className="flex items-center gap-3 px-4 py-3 w-full text-left rounded-lg text-red-400 hover:bg-red-500/10 transition-colors font-medium text-sm"
+        >
           <LogOut size={20} />
           Keluar
         </button>
