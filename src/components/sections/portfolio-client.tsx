@@ -6,13 +6,14 @@ import { Monitor } from "lucide-react";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/dictionary";
 import { portfolioItems } from "@/data/portfolio";
+import { PortfolioPreview } from "@/components/ui/portfolio-preview";
 
 interface PortfolioClientProps {
   dict: Dictionary["portfolio"];
   lang: string;
 }
 
-export function PortfolioClient({ dict }: PortfolioClientProps) {
+export function PortfolioClient({ dict, lang }: PortfolioClientProps) {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
@@ -65,8 +66,8 @@ export function PortfolioClient({ dict }: PortfolioClientProps) {
                 transition={{ delay: i * 0.05 }}
                 className="group bg-white rounded-2xl overflow-hidden border border-garapin-border hover:shadow-xl transition-all duration-300"
               >
-                <div className="aspect-video bg-gradient-to-br from-garapin-dark to-garapin-navy flex items-center justify-center relative overflow-hidden">
-                  <Monitor size={48} className="text-white/20" />
+                <div className="aspect-video relative overflow-hidden">
+                  <PortfolioPreview category={item.category} lang={lang} />
                 </div>
                 <div className="p-5">
                   <span className="text-xs font-medium text-garapin-orange uppercase tracking-wider">

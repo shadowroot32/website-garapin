@@ -25,7 +25,7 @@ export default async function LangLayout({
     <>
       <Navbar dict={dict.nav} lang={lang} />
       <main className="flex-1">{children}</main>
-      <Footer dict={dict.footer} lang={lang} />
+      <Footer dict={dict.footer} lang={lang} servicesDict={dict.services} />
     </>
   );
 }

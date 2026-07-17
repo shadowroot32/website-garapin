@@ -42,11 +42,12 @@ export function ServicesClient({ dict, lang }: ServicesClientProps) {
             {services.map(([key, service], i) => (
               <motion.div
                 key={key}
+                id={key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group bg-garapin-bg rounded-2xl p-8 border border-garapin-border hover:border-garapin-orange/30 transition-all duration-300"
+                className="group bg-garapin-bg rounded-2xl p-8 border border-garapin-border hover:border-garapin-orange/30 transition-all duration-300 scroll-mt-24"
               >
                 <div className="w-16 h-16 rounded-2xl bg-garapin-orange-muted text-garapin-orange flex items-center justify-center mb-6 group-hover:bg-garapin-orange group-hover:text-white transition-all duration-300">
                   {icons[key]}
@@ -62,11 +63,17 @@ export function ServicesClient({ dict, lang }: ServicesClientProps) {
       {/* CTA */}
       <section className="py-24 bg-garapin-bg">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-garapin-navy mb-4">Tidak yakin layanan mana yang tepat?</h2>
-          <p className="text-garapin-gray text-lg mb-8">Konsultasi gratis dengan tim kami untuk mendiskusikan kebutuhan website Anda.</p>
+          <h2 className="text-3xl font-bold text-garapin-navy mb-4">
+            {lang === "id" ? "Tidak yakin layanan mana yang tepat?" : "Not sure which service is right for you?"}
+          </h2>
+          <p className="text-garapin-gray text-lg mb-8">
+            {lang === "id"
+              ? "Konsultasi gratis dengan tim kami untuk mendiskusikan kebutuhan website Anda."
+              : "Get a free consultation with our team to discuss your website requirements."}
+          </p>
           <Link href={`/${lang}/contact`}>
             <Button variant="primary" size="lg">
-              Konsultasi Gratis <ArrowRight className="ml-2" size={18} />
+              {lang === "id" ? "Konsultasi Gratis" : "Free Consultation"} <ArrowRight className="ml-2" size={18} />
             </Button>
           </Link>
         </div>

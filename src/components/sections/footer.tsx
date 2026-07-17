@@ -6,6 +6,9 @@ import type { Dictionary } from "@/types/dictionary";
 interface FooterProps {
   dict: Dictionary["footer"];
   lang: string;
+  servicesDict?: {
+    items: Record<string, { title: string; desc: string }>;
+  };
 }
 
 const serviceLinks = [
@@ -23,7 +26,7 @@ const quickLinks = [
   { key: "contact", href: "contact" },
 ];
 
-export function Footer({ dict, lang }: FooterProps) {
+export function Footer({ dict, lang, servicesDict }: FooterProps) {
   return (
     <footer className="bg-garapin-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -56,11 +59,13 @@ export function Footer({ dict, lang }: FooterProps) {
               {serviceLinks.map(({ key }) => (
                 <li key={key}>
                   <Link
-                    href={`/${lang}/${key}`}
+                    href={`/${lang}/services#${key}`}
                     className="text-garapin-light hover:text-white transition-colors text-sm flex items-center gap-1 group"
                   >
                     <ArrowUpRight size={12} className="opacity-0 group-hover:opacity-100 transition-opacity" />
-                    <span>{key}</span>
+                    <span>
+                      {servicesDict?.items[key]?.title || key.replace("_", " ")}
+                    </span>
                   </Link>
                 </li>
               ))}

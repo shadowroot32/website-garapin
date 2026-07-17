@@ -19,21 +19,38 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
     websiteType: "",
     package: "",
     message: "",
+    websiteUrl: "", // Honeypot field
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
+    
+    // Bot validation: if honeypot field is filled, silently ignore and mock success
+    if (formData.websiteUrl) {
+      setStatus("success");
+      setFormData({ name: "", company: "", contact: "", websiteType: "", package: "", message: "", websiteUrl: "" });
+      return;
+    }
+
     setStatus("sending");
     try {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...formData, lang }),
+        body: JSON.stringify({
+          name: formData.name,
+          company: formData.company,
+          contact: formData.contact,
+          websiteType: formData.websiteType,
+          package: formData.package,
+          message: formData.message,
+          lang,
+        }),
       });
       if (res.ok) {
         setStatus("success");
-        setFormData({ name: "", company: "", contact: "", websiteType: "", package: "", message: "" });
+        setFormData({ name: "", company: "", contact: "", websiteType: "", package: "", message: "", websiteUrl: "" });
       } else {
         setStatus("error");
       }
@@ -66,6 +83,19 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
               onSubmit={handleSubmit}
               className="lg:col-span-2 bg-white rounded-2xl p-8 border border-garapin-border"
             >
+              {/* Honeypot field (hidden from human users) */}
+              <div className="hidden" aria-hidden="true">
+                <label htmlFor="website_url">Website URL</label>
+                <input
+                  type="text"
+                  id="website_url"
+                  name="website_url"
+                  value={formData.websiteUrl}
+                  onChange={(e) => setFormData({ ...formData, websiteUrl: e.target.value })}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
               <div className="grid sm:grid-cols-2 gap-4 mb-4">
                 <div>
                   <label className="block text-sm font-medium text-garapin-navy mb-1.5">{dict.form.name} *</label>

@@ -82,11 +82,17 @@ export function PricingClient({ dict, lang }: PricingClientProps) {
 
       <section className="py-24 bg-garapin-bg">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-garapin-navy mb-4">Need a Custom Plan?</h2>
-          <p className="text-garapin-gray text-lg mb-8">Every business is unique. Contact us for a tailored solution that fits your specific needs and budget.</p>
+          <h2 className="text-3xl font-bold text-garapin-navy mb-4">
+            {lang === "id" ? "Butuh Paket Custom?" : "Need a Custom Plan?"}
+          </h2>
+          <p className="text-garapin-gray text-lg mb-8">
+            {lang === "id"
+              ? "Setiap bisnis memiliki kebutuhan unik. Hubungi kami untuk solusi yang disesuaikan dengan anggaran dan kebutuhan Anda."
+              : "Every business is unique. Contact us for a tailored solution that fits your specific needs and budget."}
+          </p>
           <Link href={`/${lang}/contact`}>
             <Button variant="primary" size="lg">
-              Contact Us <ArrowRight className="ml-2" size={18} />
+              {lang === "id" ? "Hubungi Kami" : "Contact Us"} <ArrowRight className="ml-2" size={18} />
             </Button>
           </Link>
         </div>

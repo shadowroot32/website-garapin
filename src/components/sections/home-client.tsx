@@ -29,6 +29,7 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import type { Dictionary } from "@/types/dictionary";
 import { portfolioItems } from "@/data/portfolio";
+import { PortfolioPreview } from "@/components/ui/portfolio-preview";
 
 interface HomeClientProps {
   dict: Dictionary;
@@ -93,15 +94,14 @@ const SectionHeading = ({
   </motion.div>
 );
 
-function HeroSection({ dict }: { dict: Dictionary["hero"] }) {
+function HeroSection({ dict, lang }: { dict: Dictionary["hero"]; lang: string }) {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-gradient-to-br from-garapin-navy via-garapin-dark to-garapin-navy">
+      <div className="absolute inset-0 overflow-hidden grid-pattern-dark opacity-30" />
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-80 h-80 bg-garapin-orange/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-garapin-orange/5 rounded-full blur-3xl" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full max-w-4xl">
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-garapin-orange/5 to-transparent" />
-        </div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-garapin-orange/15 rounded-full blur-3xl animate-pulse duration-[8000ms]" />
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-garapin-orange/10 rounded-full blur-3xl animate-pulse duration-[10000ms]" />
+        <div className="absolute top-1/3 left-1/4 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40">
@@ -160,69 +160,59 @@ function HeroSection({ dict }: { dict: Dictionary["hero"] }) {
             className="hidden lg:block"
           >
             <div className="relative">
-              <div className="relative bg-white rounded-xl shadow-2xl overflow-hidden">
+              <div className="relative glass-panel-dark rounded-xl shadow-2xl overflow-hidden border border-white/10">
                 {/* Browser chrome */}
-                <div className="flex items-center gap-2 px-4 py-3 bg-garapin-navy border-b border-white/10">
-                  <div className="w-3 h-3 rounded-full bg-red-500" />
-                  <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                  <div className="w-3 h-3 rounded-full bg-green-500" />
-                  <div className="ml-4 flex-1 max-w-md h-6 rounded-md bg-white/10 flex items-center px-3">
-                    <span className="text-xs text-white/50">garapin.id</span>
+                <div className="flex items-center gap-2 px-4 py-3 bg-slate-950/80 border-b border-white/10">
+                  <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                  <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                  <div className="ml-4 flex-1 max-w-md h-6 rounded-md bg-white/5 border border-white/10 flex items-center px-3">
+                    <span className="text-[10px] text-white/40 tracking-wider">garapin.id/builder</span>
                   </div>
                 </div>
                 {/* Mockup content */}
-                <div className="p-5 bg-white">
+                <div className="p-6 bg-slate-900/50 text-white relative">
+                  <div className="absolute inset-0 grid-pattern opacity-5" />
+                  
                   {/* Navbar mockup */}
-                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-gray-100">
+                  <div className="flex items-center justify-between mb-6 pb-4 border-b border-white/5 relative z-10">
                     <div className="flex items-center gap-2">
-                      <div className="w-6 h-6 rounded-md bg-garapin-orange" />
-                      <div className="h-3 w-20 bg-gray-200 rounded" />
+                      <div className="w-6 h-6 rounded-md bg-garapin-orange flex items-center justify-center text-[10px] font-black text-white">G</div>
+                      <div className="h-3 w-16 bg-white/10 rounded animate-pulse" />
                     </div>
                     <div className="flex gap-4">
-                      <div className="h-2 w-10 bg-gray-100 rounded" />
-                      <div className="h-2 w-10 bg-gray-100 rounded" />
-                      <div className="h-2 w-10 bg-gray-100 rounded" />
+                      <div className="h-2 w-8 bg-white/5 rounded" />
+                      <div className="h-2 w-8 bg-white/5 rounded" />
+                      <div className="h-2 w-8 bg-white/5 rounded" />
                     </div>
                   </div>
+                  
                   {/* Hero section mockup */}
-                  <div className="mb-6">
-                    <div className="h-3 w-16 bg-garapin-orange/20 rounded-full mb-3" />
-                    <div className="h-5 w-3/4 bg-gray-800 rounded mb-2" />
-                    <div className="h-5 w-1/2 bg-gray-800 rounded mb-3" />
-                    <div className="h-3 w-full bg-gray-100 rounded" />
-                    <div className="h-3 w-5/6 bg-gray-100 rounded mt-1" />
-                  </div>
-                  {/* Cards grid */}
-                  <div className="grid grid-cols-3 gap-3">
-                    <div className="p-3 rounded-lg border border-gray-100">
-                      <div className="w-8 h-8 rounded-lg bg-garapin-orange-muted mb-2" />
-                      <div className="h-2 w-16 bg-gray-200 rounded mb-1" />
-                      <div className="h-2 w-full bg-gray-100 rounded" />
+                  <div className="mb-6 relative z-10">
+                    <div className="h-3 w-20 bg-garapin-orange/20 text-garapin-orange border border-garapin-orange/30 rounded-full mb-3 text-[8px] flex items-center justify-center font-bold">
+                      PROJEK TERBARU
                     </div>
-                    <div className="p-3 rounded-lg border border-gray-100">
-                      <div className="w-8 h-8 rounded-lg bg-garapin-orange-muted mb-2" />
-                      <div className="h-2 w-16 bg-gray-200 rounded mb-1" />
-                      <div className="h-2 w-full bg-gray-100 rounded" />
-                    </div>
-                    <div className="p-3 rounded-lg border border-gray-100">
-                      <div className="w-8 h-8 rounded-lg bg-garapin-orange-muted mb-2" />
-                      <div className="h-2 w-16 bg-gray-200 rounded mb-1" />
-                      <div className="h-2 w-full bg-gray-100 rounded" />
+                    <div className="h-5 w-4/5 bg-gradient-to-r from-white to-white/60 rounded mb-2" />
+                    <div className="h-5 w-3/5 bg-gradient-to-r from-white to-white/60 rounded mb-4" />
+                    <div className="space-y-1.5 mb-4">
+                      <div className="h-2.5 w-full bg-white/5 rounded" />
+                      <div className="h-2.5 w-11/12 bg-white/5 rounded" />
                     </div>
                   </div>
-                  {/* Stats bar */}
-                  <div className="mt-4 pt-4 border-t border-gray-100 flex justify-around">
-                    <div className="text-center">
-                      <div className="h-4 w-8 bg-gray-800 rounded mx-auto mb-1" />
-                      <div className="h-2 w-12 bg-gray-100 rounded mx-auto" />
+                  
+                  {/* Live Stats Graph Mockup */}
+                  <div className="p-4 rounded-xl bg-white/5 border border-white/10 relative z-10 mb-2">
+                    <div className="flex justify-between items-center mb-3">
+                      <span className="text-[10px] font-bold text-white/80">Analitik Konversi</span>
+                      <span className="text-[9px] text-emerald-400 font-bold">+28.4%</span>
                     </div>
-                    <div className="text-center">
-                      <div className="h-4 w-8 bg-gray-800 rounded mx-auto mb-1" />
-                      <div className="h-2 w-12 bg-gray-100 rounded mx-auto" />
-                    </div>
-                    <div className="text-center">
-                      <div className="h-4 w-8 bg-gray-800 rounded mx-auto mb-1" />
-                      <div className="h-2 w-12 bg-gray-100 rounded mx-auto" />
+                    <div className="h-16 w-full flex items-end gap-1.5 justify-between pt-2">
+                      <div className="w-full h-[30%] bg-white/10 rounded-t-sm" />
+                      <div className="w-full h-[45%] bg-white/15 rounded-t-sm" />
+                      <div className="w-full h-[60%] bg-white/10 rounded-t-sm" />
+                      <div className="w-full h-[55%] bg-white/15 rounded-t-sm" />
+                      <div className="w-full h-[75%] bg-garapin-orange/60 rounded-t-sm" />
+                      <div className="w-full h-[90%] bg-garapin-orange rounded-t-sm shadow-lg shadow-garapin-orange/50 animate-pulse" />
                     </div>
                   </div>
                 </div>
@@ -305,7 +295,7 @@ function WorkflowSection({ dict }: { dict: Dictionary["workflow"] }) {
   );
 }
 
-function PortfolioSection({ dict }: { dict: Dictionary["portfolio"] }) {
+function PortfolioSection({ dict, lang }: { dict: Dictionary["portfolio"]; lang: string }) {
   const [activeCategory, setActiveCategory] = useState("all");
 
   const categories = [
@@ -354,37 +344,8 @@ function PortfolioSection({ dict }: { dict: Dictionary["portfolio"] }) {
               transition={{ delay: i * 0.05 }}
               className="group bg-white rounded-2xl overflow-hidden border border-garapin-border hover:shadow-xl transition-all duration-300"
             >
-              <div className="aspect-video flex items-center justify-center relative overflow-hidden">
-                {item.category === "company" && (
-                  <div className="w-full h-full bg-gradient-to-br from-blue-900 to-blue-700 flex items-center justify-center">
-                    <Building2 size={48} className="text-white/30" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </div>
-                )}
-                {item.category === "landing" && (
-                  <div className="w-full h-full bg-gradient-to-br from-purple-900 to-purple-700 flex items-center justify-center">
-                    <Megaphone size={48} className="text-white/30" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </div>
-                )}
-                {item.category === "ecommerce" && (
-                  <div className="w-full h-full bg-gradient-to-br from-emerald-900 to-emerald-700 flex items-center justify-center">
-                    <ShoppingCart size={48} className="text-white/30" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </div>
-                )}
-                {item.category === "dashboard" && (
-                  <div className="w-full h-full bg-gradient-to-br from-amber-900 to-amber-700 flex items-center justify-center">
-                    <BarChart3 size={48} className="text-white/30" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </div>
-                )}
-                {item.category === "system" && (
-                  <div className="w-full h-full bg-gradient-to-br from-rose-900 to-rose-700 flex items-center justify-center">
-                    <Database size={48} className="text-white/30" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                  </div>
-                )}
+              <div className="aspect-video relative overflow-hidden">
+                <PortfolioPreview category={item.category} lang={lang} />
               </div>
               <div className="p-5">
                 <span className="text-xs font-medium text-garapin-orange uppercase tracking-wider">
@@ -589,10 +550,10 @@ function CTASection({ dict, lang }: { dict: Dictionary["cta_section"]; lang: str
 export function HomeClient({ dict, lang }: HomeClientProps) {
   return (
     <>
-      <HeroSection dict={dict.hero} />
+      <HeroSection dict={dict.hero} lang={lang} />
       <ServicesSection dict={dict.services} />
       <WorkflowSection dict={dict.workflow} />
-      <PortfolioSection dict={dict.portfolio} />
+      <PortfolioSection dict={dict.portfolio} lang={lang} />
       <PricingSection dict={dict.pricing} />
       <TestimonialsSection dict={dict.testimonials} />
       <FAQSection dict={dict.faq} />
