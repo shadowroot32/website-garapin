@@ -11,6 +11,10 @@ export default function AdminSettingsPage() {
     adminName: "Admin Garapin",
     brandName: "Garapin.id",
     whatsappNumber: "085283868884",
+    publicEmail: "mustofahabibibafadhal01@garapin.id",
+    priceStarter: "Rp 1.499.000",
+    priceProfesional: "Rp 3.499.000",
+    pricePremium: "Hubungi Kami",
   });
   
   const [loading, setLoading] = useState(true);
@@ -130,13 +134,67 @@ export default function AdminSettingsPage() {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-garapin-navy mb-1.5">Nomor WhatsApp Penerima (Untuk Tombol CTA)</label>
+              <label className="block text-sm font-medium text-garapin-navy mb-1.5">Nomor WhatsApp Penerima</label>
               <input 
                 type="text" 
                 name="whatsappNumber"
                 value={formData.whatsappNumber}
                 onChange={handleChange}
                 placeholder="Misal: 085283868884"
+                className="w-full px-4 py-2 border border-garapin-border rounded-lg text-sm focus:ring-garapin-orange outline-none" 
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-garapin-navy mb-1.5">Email Kontak Publik</label>
+              <input 
+                type="email" 
+                name="publicEmail"
+                value={formData.publicEmail}
+                onChange={handleChange}
+                placeholder="Misal: info@garapin.id"
+                className="w-full px-4 py-2 border border-garapin-border rounded-lg text-sm focus:ring-garapin-orange outline-none" 
+              />
+              <p className="text-[11px] text-garapin-gray mt-1">Email yang ditampilkan di halaman kontak & footer (Berbeda dengan email login admin).</p>
+            </div>
+          </div>
+        </div>
+
+        <hr className="border-garapin-border" />
+
+        {/* Section: Harga Paket */}
+        <div>
+          <h3 className="text-lg font-semibold text-garapin-navy flex items-center gap-2 mb-4">
+            <Shield size={18} className="text-garapin-orange" />
+            Pengaturan Harga Paket
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div>
+              <label className="block text-sm font-medium text-garapin-navy mb-1.5">Harga Starter</label>
+              <input 
+                type="text" 
+                name="priceStarter"
+                value={formData.priceStarter}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-garapin-border rounded-lg text-sm focus:ring-garapin-orange outline-none" 
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-garapin-navy mb-1.5">Harga Profesional</label>
+              <input 
+                type="text" 
+                name="priceProfesional"
+                value={formData.priceProfesional}
+                onChange={handleChange}
+                className="w-full px-4 py-2 border border-garapin-border rounded-lg text-sm focus:ring-garapin-orange outline-none" 
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-garapin-navy mb-1.5">Harga Premium</label>
+              <input 
+                type="text" 
+                name="pricePremium"
+                value={formData.pricePremium}
+                onChange={handleChange}
                 className="w-full px-4 py-2 border border-garapin-border rounded-lg text-sm focus:ring-garapin-orange outline-none" 
               />
             </div>

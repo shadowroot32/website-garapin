@@ -5,6 +5,10 @@ export interface AppSettings {
   adminName: string;
   brandName: string;
   whatsappNumber: string;
+  publicEmail: string;
+  priceStarter: string;
+  priceProfesional: string;
+  pricePremium: string;
 }
 
 const SETTINGS_DOC_ID = "main_config";

@@ -32,17 +32,20 @@ const quickLinks = [
 
 export function Footer({ dict, lang, servicesDict }: FooterProps) {
   const [dynamicWa, setDynamicWa] = useState("");
+  const [dynamicEmail, setDynamicEmail] = useState("");
   const [brandName, setBrandName] = useState("Garapin.id");
 
   useEffect(() => {
     getSettings().then(settings => {
       if (settings?.whatsappNumber) setDynamicWa(settings.whatsappNumber);
+      if (settings?.publicEmail) setDynamicEmail(settings.publicEmail);
       if (settings?.brandName) setBrandName(settings.brandName);
     });
   }, []);
 
   const waLink = `https://wa.me/${dynamicWa ? dynamicWa.replace(/\D/g,'') : "6285283868884"}`;
   const displayWa = dynamicWa || dict.contact_wa;
+  const displayEmail = dynamicEmail || dict.contact_email;
   return (
     <footer className="bg-garapin-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -127,11 +130,11 @@ export function Footer({ dict, lang, servicesDict }: FooterProps) {
               </li>
               <li>
                 <a
-                  href={`mailto:hello@garapin.id`}
+                  href={`mailto:${displayEmail}`}
                   className="flex items-center gap-3 text-garapin-light hover:text-white transition-colors group"
                 >
                   <Mail size={16} className="text-garapin-orange shrink-0" />
-                  <span className="text-sm">hello@garapin.id</span>
+                  <span className="text-sm">{displayEmail}</span>
                 </a>
               </li>
               <li className="flex items-center gap-3 text-garapin-light">

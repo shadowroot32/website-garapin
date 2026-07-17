@@ -1,4 +1,5 @@
 "use client";
+import { useState, useEffect } from "react";
 
 import { motion } from "framer-motion";
 import { Check, ArrowRight } from "lucide-react";
@@ -13,10 +14,30 @@ interface PricingClientProps {
 }
 
 export function PricingClient({ dict, lang }: PricingClientProps) {
+  const [prices, setPrices] = useState({
+    starter: dict.starter.price,
+    profesional: dict.profesional.price,
+    premium: dict.premium.price
+  });
+
+  useEffect(() => {
+    import("@/lib/firebase/settings-service").then(({ getSettings }) => {
+      getSettings().then(settings => {
+        if (settings) {
+          setPrices({
+            starter: settings.priceStarter || dict.starter.price,
+            profesional: settings.priceProfesional || dict.profesional.price,
+            premium: settings.pricePremium || dict.premium.price
+          });
+        }
+      });
+    });
+  }, [dict]);
+
   const tiers = [
-    { key: "starter" as const, data: dict.starter, highlighted: false },
-    { key: "profesional" as const, data: dict.profesional, highlighted: true },
-    { key: "premium" as const, data: dict.premium, highlighted: false },
+    { key: "starter" as const, data: { ...dict.starter, price: prices.starter }, highlighted: false },
+    { key: "profesional" as const, data: { ...dict.profesional, price: prices.profesional }, highlighted: true },
+    { key: "premium" as const, data: { ...dict.premium, price: prices.premium }, highlighted: false },
   ];
 
   const featureKeys = ["pages", "language", "cms", "database", "seo", "revision", "support"] as const;
