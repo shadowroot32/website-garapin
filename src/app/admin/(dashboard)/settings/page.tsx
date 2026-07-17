@@ -16,8 +16,7 @@ export default function AdminSettingsPage() {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
   const [successMsg, setSuccessMsg] = useState("");
-
-  const userEmail = auth.currentUser?.email || "admin@garapin.id";
+  const [userEmail, setUserEmail] = useState("");
 
   useEffect(() => {
     const loadSettings = async () => {
@@ -33,6 +32,14 @@ export default function AdminSettingsPage() {
       }
     };
     loadSettings();
+
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        setUserEmail(user.email || "");
+      }
+    });
+
+    return () => unsubscribe();
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {

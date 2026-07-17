@@ -1,10 +1,11 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useState, useEffect, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, Clock, Send, Loader2, CheckCircle, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import type { Dictionary } from "@/types/dictionary";
+import { getSettings } from "@/lib/firebase/settings-service";
 
 interface ContactClientProps {
   dict: Dictionary["contact"];
@@ -22,6 +23,20 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
     websiteUrl: "", // Honeypot field
   });
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [dynamicWa, setDynamicWa] = useState("");
+
+
+
+  useEffect(() => {
+    getSettings().then(settings => {
+      if (settings?.whatsappNumber) {
+        setDynamicWa(settings.whatsappNumber);
+      }
+    });
+  }, []);
+
+  const waLink = `https://wa.me/${dynamicWa ? dynamicWa.replace(/\D/g,'') : "6285283868884"}`;
+  const displayWa = dynamicWa || dict.info_wa;
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -202,7 +217,7 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
                 <h3 className="text-lg font-semibold text-garapin-navy mb-6">{dict.info_title}</h3>
                 <div className="space-y-5">
                   <a
-                    href="https://wa.me/6285283868884"
+                    href={waLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-4 group"
@@ -212,7 +227,7 @@ export function ContactClient({ dict, lang }: ContactClientProps) {
                     </div>
                     <div>
                       <div className="text-xs text-garapin-gray">{dict.info_wa}</div>
-                      <div className="text-sm font-medium text-garapin-navy">0852-8386-8884</div>
+                      <div className="text-sm font-medium text-garapin-navy">{displayWa}</div>
                     </div>
                   </a>
                   <a

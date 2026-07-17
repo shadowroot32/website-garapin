@@ -1,7 +1,11 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import type { Dictionary } from "@/types/dictionary";
+import { getSettings } from "@/lib/firebase/settings-service";
 
 interface FooterProps {
   dict: Dictionary["footer"];
@@ -27,6 +31,18 @@ const quickLinks = [
 ];
 
 export function Footer({ dict, lang, servicesDict }: FooterProps) {
+  const [dynamicWa, setDynamicWa] = useState("");
+  const [brandName, setBrandName] = useState("Garapin.id");
+
+  useEffect(() => {
+    getSettings().then(settings => {
+      if (settings?.whatsappNumber) setDynamicWa(settings.whatsappNumber);
+      if (settings?.brandName) setBrandName(settings.brandName);
+    });
+  }, []);
+
+  const waLink = `https://wa.me/${dynamicWa ? dynamicWa.replace(/\D/g,'') : "6285283868884"}`;
+  const displayWa = dynamicWa || dict.contact_wa;
   return (
     <footer className="bg-garapin-navy text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -42,7 +58,7 @@ export function Footer({ dict, lang, servicesDict }: FooterProps) {
                 className="h-8 w-8"
               />
               <span className="text-xl font-bold">
-                Garapin<span className="text-garapin-orange">.id</span>
+                {brandName.replace(".id", "")}<span className="text-garapin-orange">{brandName.includes(".id") ? ".id" : ""}</span>
               </span>
             </Link>
             <p className="text-garapin-light text-sm leading-relaxed">
@@ -100,13 +116,13 @@ export function Footer({ dict, lang, servicesDict }: FooterProps) {
             <ul className="space-y-4">
               <li>
                 <a
-                  href={`https://wa.me/6285283868884`}
+                  href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 text-garapin-light hover:text-white transition-colors group"
                 >
                   <Phone size={16} className="text-garapin-orange shrink-0" />
-                  <span className="text-sm">{dict.contact_wa}</span>
+                  <span className="text-sm">{displayWa}</span>
                 </a>
               </li>
               <li>
